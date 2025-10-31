@@ -1,0 +1,52 @@
+# Maven
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# IDE - Cursor
+.cursor/
+.cursorignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Runtime
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+jacoco.exec
+.jacoco/
+
+# Environment files (NEVER commit credentials)
+**/.env
+**/.env.local
+**/.env.*.local
+**/*.env
+**/.env.properties
+!**/*.template
+
+# Database
+*.db
+*.sqlite
+*.h2.db
+
+src/main/resources/env.dev.properties

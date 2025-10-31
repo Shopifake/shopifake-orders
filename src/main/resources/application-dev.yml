@@ -1,0 +1,38 @@
+# Development profile
+spring:
+  config:
+    import: env.dev.properties
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+  datasource:
+    url: ${DB_URL}
+    driver-class-name: ${DB_DRIVER}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  
+  jpa:
+    database-platform: ${DB_DIALECT}
+    show-sql: true
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: ${PORT}
+
+cors:
+  allowed-origins: "*"
+  allowed-methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS"
+  allowed-headers: "*"
+  allow-credentials: false
+
+logging:
+  level:
+    root: INFO
+    com.shopifake.microservice: DEBUG

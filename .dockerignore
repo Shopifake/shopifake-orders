@@ -1,0 +1,51 @@
+# Build artifacts
+target/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+HELP.md
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Maven wrapper (Windows)
+mvnw.cmd
+
+# Environment files (NEVER copy to Docker)
+.env
+.env.*
+*.env
+.env.properties
+.env.*.properties
+
+# Test files
+src/test/
+
+# CI/CD
+.github/
+
+# Coverage & Quality
+jacoco.exec
+.jacoco/
+.sonar/
+
