@@ -2,7 +2,7 @@ name: CI/CD
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main ]
   pull_request:
     branches: [ main, dev ]
 
@@ -13,8 +13,9 @@ permissions:
 
 jobs:
   pipeline:
-    uses: hugobrun343/spring-boot-ci-cd-workflow/.github/workflows/spring-boot-pipeline.yml@v1.0.0
+    uses: hugobrun343/spring-boot-ci-cd-workflow/.github/workflows/spring-boot-pipeline.yml@v1.0.1
     with:
       cd-branches: '["main"]'
+      enable-native-build: true
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}

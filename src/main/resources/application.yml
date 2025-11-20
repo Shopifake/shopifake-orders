@@ -1,7 +1,7 @@
 # Base configuration
 spring:
   application:
-    name: microservice-template
+    name: orders-service
   
   jpa:
     open-in-view: false
@@ -33,7 +33,9 @@ management:
         include: health,info,metrics
   endpoint:
     health:
-      show-details: when-authorized
+      show-details: always
+      probes:
+        enabled: true
   info:
     env:
       enabled: true
