@@ -25,11 +25,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartItem {
-
-    @Id
-    @Column(name = "id", updatable = false, nullable = false)
-    private UUID id;
+public class CartItem extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "cart_id", nullable = false)
@@ -40,30 +36,4 @@ public class CartItem {
 
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
-
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
-    @Column(name = "updated_at", nullable = false)
-    private LocalDateTime updatedAt;
-
-    @PrePersist
-    protected void onCreate() {
-        LocalDateTime now = LocalDateTime.now();
-        if (id == null) {
-            id = UUID.randomUUID();
-        }
-        if (createdAt == null) {
-            createdAt = now;
-        }
-        if (updatedAt == null) {
-            updatedAt = now;
-        }
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }
-

@@ -83,8 +83,6 @@ public class CartService {
                 .userId(userId)
                 .sessionId(sessionId)
                 .siteId(siteId)
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
                 .build();
         return cartRepository.save(cart);
     }
@@ -128,8 +126,6 @@ public class CartService {
                     .cart(cart)
                     .productId(request.getProductId())
                     .quantity(request.getQuantity())
-                    .createdAt(LocalDateTime.now())
-                    .updatedAt(LocalDateTime.now())
                     .build();
             cartItemRepository.save(newItem);
             cart.getItems().add(newItem);
