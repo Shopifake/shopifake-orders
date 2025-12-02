@@ -104,7 +104,7 @@ public class CartService {
         log.info("Adding product {} with quantity {} to cart",
                 request.getProductId(), request.getQuantity());
 
-        Cart cart = getOrCreateCart(userId, sessionId, siteId);
+        Cart cart = this.getOrCreateCart(userId, sessionId, siteId);
 
         // Check if item already exists in cart
         Optional<CartItem> existingItem = cartItemRepository.findByCart_IdAndProductId(
@@ -148,7 +148,7 @@ public class CartService {
      */
     @Transactional(readOnly = true)
     public CartResponse getCart(final UUID userId, final String sessionId, final UUID siteId) {
-        Cart cart = getOrCreateCart(userId, sessionId, siteId);
+        Cart cart = this.getOrCreateCart(userId, sessionId, siteId);
         // Explicitly fetch items to avoid LazyInitializationException
         cart.getItems().size(); // Force lazy loading within transaction
         return mapToResponse(cart);
@@ -174,7 +174,7 @@ public class CartService {
 
         log.info("Updating cart item {} quantity to {}", itemId, request.getQuantity());
 
-        Cart cart = getOrCreateCart(userId, sessionId, siteId);
+        Cart cart = this.getOrCreateCart(userId, sessionId, siteId);
 
         CartItem item = cartItemRepository.findById(itemId)
                 .orElseThrow(() -> new IllegalArgumentException("Cart item not found: " + itemId));
@@ -210,7 +210,7 @@ public class CartService {
 
         log.info("Removing cart item {}", itemId);
 
-        Cart cart = getOrCreateCart(userId, sessionId, siteId);
+        Cart cart = this.getOrCreateCart(userId, sessionId, siteId);
 
         CartItem item = cartItemRepository.findById(itemId)
                 .orElseThrow(() -> new IllegalArgumentException("Cart item not found: " + itemId));
@@ -240,7 +240,7 @@ public class CartService {
     public CartResponse clearCart(final UUID userId, final String sessionId, final UUID siteId) {
         log.info("Clearing cart for user: {}, session: {}, site: {}", userId, sessionId, siteId);
 
-        Cart cart = getOrCreateCart(userId, sessionId, siteId);
+        Cart cart = this.getOrCreateCart(userId, sessionId, siteId);
         cartItemRepository.deleteAll(cart.getItems());
         cart.getItems().clear();
 
