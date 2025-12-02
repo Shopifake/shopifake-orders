@@ -41,11 +41,6 @@ management:
       enabled: true
     java:
       enabled: true
-  otlp:
-    metrics:
-      export:
-        url: ${OTLP_METRICS_URL}
-        enabled: true
 
 # Logging configuration
 logging:

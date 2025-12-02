@@ -36,11 +36,6 @@ management:
       show-details: always
       probes:
         enabled: true
-  otlp:
-    metrics:
-      export:
-        url: ${OTLP_METRICS_URL}
-        enabled: true
 
 cors:
   allowed-origins: "*"
