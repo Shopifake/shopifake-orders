@@ -267,7 +267,7 @@ public class CartService {
 
         List<CartItemResponse> itemResponses = items.stream()
                 .map(this::mapItemToResponse)
-                .collect(Collectors.toList());
+                .toList();
 
         return CartResponse.builder()
                 .id(cart.getId())

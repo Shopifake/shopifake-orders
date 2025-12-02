@@ -13,7 +13,7 @@ CREATE TABLE carts (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT carts_user_or_session CHECK (
-        (user_id IS NOT NULL) OR (session_id IS NOT NULL AND session_id != '')
+        (user_id IS NOT NULL) OR (NULLIF(session_id, '') IS NOT NULL)
     )
 );
 
