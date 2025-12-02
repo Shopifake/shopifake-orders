@@ -30,10 +30,17 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: health,info,metrics,prometheus,gateway
   endpoint:
     health:
       show-details: always
+      probes:
+        enabled: true
+  otlp:
+    metrics:
+      export:
+        url: ${OTLP_METRICS_URL}
+        enabled: true
 
 logging:
   level:
