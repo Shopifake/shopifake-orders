@@ -36,6 +36,8 @@ import java.util.UUID;
 @Tag(name = "Carts", description = "API for managing shopping carts")
 public class CartController {
 
+    private static final String SITE_ID_REQUIRED_MESSAGE = "Site ID is required";
+
     /** The cart service for business logic operations. */
     private final CartService cartService;
 
@@ -63,7 +65,7 @@ public class CartController {
         log.debug("Fetching cart for user: {}, session: {}, site: {}", userId, sessionId, siteId);
 
         if (siteId == null) {
-            log.warn("Site ID is required");
+            log.warn(SITE_ID_REQUIRED_MESSAGE);
             return ResponseEntity.badRequest().build();
         }
 
@@ -99,7 +101,7 @@ public class CartController {
                 request.getProductId(), request.getQuantity());
 
         if (siteId == null) {
-            log.warn("Site ID is required");
+            log.warn(SITE_ID_REQUIRED_MESSAGE);
             return ResponseEntity.badRequest().build();
         }
 
@@ -141,7 +143,7 @@ public class CartController {
         log.info("Updating cart item {} with quantity {}", itemId, request.getQuantity());
 
         if (siteId == null) {
-            log.warn("Site ID is required");
+            log.warn(SITE_ID_REQUIRED_MESSAGE);
             return ResponseEntity.badRequest().build();
         }
 
@@ -180,7 +182,7 @@ public class CartController {
         log.info("Removing cart item {}", itemId);
 
         if (siteId == null) {
-            log.warn("Site ID is required");
+            log.warn(SITE_ID_REQUIRED_MESSAGE);
             return ResponseEntity.badRequest().build();
         }
 
@@ -216,7 +218,7 @@ public class CartController {
         log.info("Clearing cart for user: {}, session: {}, site: {}", userId, sessionId, siteId);
 
         if (siteId == null) {
-            log.warn("Site ID is required");
+            log.warn(SITE_ID_REQUIRED_MESSAGE);
             return ResponseEntity.badRequest().build();
         }
 
