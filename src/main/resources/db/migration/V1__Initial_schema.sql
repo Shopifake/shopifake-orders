@@ -8,7 +8,7 @@
 CREATE TABLE carts (
     id UUID PRIMARY KEY,
     user_id UUID,
-    session_id VARCHAR2(255),
+    session_id VARCHAR(255),
     site_id UUID NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
