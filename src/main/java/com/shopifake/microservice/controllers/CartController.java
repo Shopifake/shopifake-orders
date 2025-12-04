@@ -30,7 +30,7 @@ import java.util.UUID;
  * REST controller for cart management operations.
  */
 @RestController
-@RequestMapping("/api/orders/carts")
+@RequestMapping("/carts")
 @RequiredArgsConstructor
 @Slf4j
 @Tag(name = "Carts", description = "API for managing shopping carts")
